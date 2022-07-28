@@ -52,7 +52,7 @@ header img {
 .tag {
   background-color: rgb(100, 100, 100);
   color: white;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
   padding: 1.2rem;
   border-radius: 10px;
   transition: opacity 0.5s, transform 0.5s;
