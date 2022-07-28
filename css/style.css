@@ -1,0 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: linear-gradient(#99a5ea 40%, #a7f889);
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem;
+}
