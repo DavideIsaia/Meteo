@@ -1,6 +1,8 @@
 const myIcon = document.querySelector('.icon');
 const myLocation = document.querySelector('.location');
 const myTemperature = document.querySelector('.temperature');
+const myTempMax = document.querySelector('.temp-max');
+const myTempMin = document.querySelector('.temp-min');
 const myHint = document.querySelector('.hint');
 
 const rootElement = document.documentElement;
@@ -43,7 +45,9 @@ function onSuccess(position) {
 
       // prendo le info che mi servono
       const locationName = data.name;
-      const temperature = Math.floor(data.main.temp);
+      const temperature = Math.round(data.main.temp);
+      const tempMax = Math.round(data.main.temp_max);
+      const tempMin = Math.round(data.main.temp_min);
       const iconCode = data.weather[0].icon;
       const description = data.weather[0].description;
 
@@ -53,6 +57,8 @@ function onSuccess(position) {
       // inseriamo questi dati in pagina
       myLocation.innerText = locationName;
       myTemperature.innerText = `${temperature}°C`;
+      myTempMax.innerText = `${tempMax}°C`;
+      myTempMin.innerText = `${tempMin}°C`;
       myIcon.alt = description;
       myIcon.src = `img/${iconCode}.png`;
       myHint.innerHTML = hint;

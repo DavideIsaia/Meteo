@@ -10,6 +10,7 @@ html {
   height: 100vh;
   width: 100%;
   text-align: center;
+  user-select: none;
 }
 
 .container {
@@ -41,6 +42,24 @@ header img {
 
 .temperature {
   font-size: 8rem;
+}
+
+.temp-max {
+  color: orange;
+}
+
+.temp-min {
+  color: aqua;
+}
+
+.temp-max, .temp-min {
+  background-color: rgba(150, 150, 150, 0.5);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+}
+
+.mleft {
+  margin-left: 1rem;
 }
 
 .hint,
