@@ -21,14 +21,42 @@
 
       <main>
         <img class="icon" src="img/01d.png" alt="weather icon">
-        <div class="location">Caricamento...</div>
-        <div class="temperature"></div>
-        <span>T. Max:</span><span class="temp-max"></span>
-        <span class="mleft">T. Min:</span><span class="temp-min"></span>
+        <div class="description"></div>
+        <div class="location mtop">Caricamento...</div>
+        <div class="flex">
+          <div class="temperature"></div>
+          <div>
+            <div>T. Max:<span class="temp-max"></span></div>
+            <div class="mtop">T. Min:<span class="temp-min"></span></div>
+          </div>          
+        </div>
+        
+        
         <div class="tag">
           <div class="hint"></div>
         </div>
       </main>
+
+      <section class="forecast flex">
+        <div class="col">
+          <div class="daytime"></div>
+          <img class="icon-forecast" src="" alt="">
+          <div class="description-forecast"></div>
+          <div class="temp-forecast"></div>
+        </div>
+        <div class="col">
+          <div class="daytime2"></div>
+          <img class="icon-forecast2" src="" alt="">
+          <div class="description-forecast2"></div>
+          <div class="temp-forecast2"></div>
+        </div>
+        <div class="col">
+          <div class="daytime3"></div>
+          <img class="icon-forecast3" src="" alt="">
+          <div class="description-forecast3"></div>
+          <div class="temp-forecast3"></div>
+        </div>
+      </section>
     </div>
 
     <script src="js/script.js"></script>

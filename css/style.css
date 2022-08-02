@@ -19,8 +19,14 @@ html {
   padding: 1rem;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header img {
-  width: 100px;
+  width: 80px;
   float: right;
 }
 
@@ -40,8 +46,13 @@ header img {
   transform: translateY(30px);
 }
 
+.description {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
+
 .temperature {
-  font-size: 8rem;
+  font-size: 5rem;
 }
 
 .temp-max {
@@ -53,13 +64,13 @@ header img {
 }
 
 .temp-max, .temp-min {
-  background-color: rgba(150, 150, 150, 0.5);
+  background-color: rgba(100, 100, 100, 0.5);
   padding: 0.2rem 0.6rem;
   border-radius: 8px;
 }
 
-.mleft {
-  margin-left: 1rem;
+.mtop {
+  margin-top: 1rem;
 }
 
 .hint,
@@ -71,8 +82,7 @@ header img {
 .tag {
   background-color: rgb(100, 100, 100);
   color: white;
-  margin-top: 2.5rem;
-  padding: 1.2rem;
+  padding: 1rem;
   border-radius: 10px;
   transition: opacity 0.5s, transform 0.5s;
 }
@@ -80,4 +90,26 @@ header img {
 .loading .tag {
   opacity: 0;
   transform: scale(0);
+}
+
+.forecast {
+  margin-top: 1rem;
+}
+
+.icon-forecast,
+.icon-forecast2,
+.icon-forecast3 {
+  width: 90%;
+}
+
+.description-forecast,
+.description-forecast2,
+.description-forecast3 {
+  font-size: 0.8rem;
+}
+
+.temp-forecast,
+.temp-forecast2,
+.temp-forecast3 {
+  font-weight: bold;
 }

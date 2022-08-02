@@ -1,11 +1,27 @@
+const rootElement = document.documentElement;
+
+// meteo attuale
 const myIcon = document.querySelector('.icon');
+const myDescription = document.querySelector('.description');
 const myLocation = document.querySelector('.location');
 const myTemperature = document.querySelector('.temperature');
 const myTempMax = document.querySelector('.temp-max');
 const myTempMin = document.querySelector('.temp-min');
 const myHint = document.querySelector('.hint');
 
-const rootElement = document.documentElement;
+// previsioni meteo
+const myIconForecast = document.querySelector('.icon-forecast');
+const myDescriptionForecast = document.querySelector('.description-forecast');
+const myTemperatureForecast = document.querySelector('.temp-forecast');
+const myDayTime = document.querySelector('.daytime');
+const myIconForecast2 = document.querySelector('.icon-forecast2');
+const myDescriptionForecast2 = document.querySelector('.description-forecast2');
+const myTemperatureForecast2 = document.querySelector('.temp-forecast2');
+const myDayTime2 = document.querySelector('.daytime2');
+const myIconForecast3 = document.querySelector('.icon-forecast3');
+const myDescriptionForecast3 = document.querySelector('.description-forecast3');
+const myTemperatureForecast3 = document.querySelector('.temp-forecast3');
+const myDayTime3 = document.querySelector('.daytime3');
 
 // recuperare la posizione
 window.navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -30,11 +46,12 @@ function onSuccess(position) {
   const language = 'it';
   const units = 'metric';
   const endpoint = 'https://api.openweathermap.org/data/2.5/weather';
+  const forecast = 'https://api.openweathermap.org/data/2.5/forecast';
 
-  const apiUri = `${endpoint}?lon=${longitude}&lat=${latitude}&units=${units}&lang=${language}&appid=${apiKey}`;
+  const apiUri = `${endpoint}?lon=${longitude}&lat=${latitude}&units=${units}&lang=${language}&appid=${apiKey}`;  
+  const apiUriForecast = `${forecast}?lon=${longitude}&lat=${latitude}&units=${units}&lang=${language}&appid=${apiKey}`;
 
-  // chiamata
-
+  // chiamata per il meteo corrente
   fetch(apiUri)
     .then(function (response) {
       const data = response.json();
@@ -60,12 +77,85 @@ function onSuccess(position) {
       myTempMax.innerText = `${tempMax}°C`;
       myTempMin.innerText = `${tempMin}°C`;
       myIcon.alt = description;
+      myDescription.innerText = description;
       myIcon.src = `img/${iconCode}.png`;
       myHint.innerHTML = hint;
 
       // rimuovere loading
       rootElement.classList.remove('loading');
     });
+
+  //  chiamata per le previsioni meteo
+  fetch(apiUriForecast)
+    .then(function (response) {
+      const dataForecast = response.json();
+      return dataForecast;
+    })
+    .then(function (dataForecast) {
+      console.log(dataForecast);
+
+      // prendo le info che mi servono
+      const iconCode = dataForecast.list[8].weather[0].icon;
+      const description = dataForecast.list[8].weather[0].description;
+      const temperature = Math.round(dataForecast.list[8].main.temp);
+      let daytime = dataForecast.list[8].dt_txt;
+      const iconCode2 = dataForecast.list[16].weather[0].icon;
+      const description2 = dataForecast.list[16].weather[0].description;
+      const temperature2 = Math.round(dataForecast.list[16].main.temp);
+      let daytime2 = dataForecast.list[16].dt_txt;
+      const iconCode3 = dataForecast.list[24].weather[0].icon;
+      const description3 = dataForecast.list[24].weather[0].description;
+      const temperature3 = Math.round(dataForecast.list[24].main.temp);
+      let daytime3 = dataForecast.list[24].dt_txt;
+
+      formatDateIT();
+      formatDateIT2();
+      formatDateIT3();
+
+      // inseriamo questi dati in pagina
+      myIconForecast.src = `img/${iconCode}.png`;
+      myIconForecast.alt = description;
+      myDescriptionForecast.innerText = description;
+      myTemperatureForecast.innerText = `${temperature}°C`;
+      myDayTime.innerText = `${daytime}`;
+      myIconForecast2.src = `img/${iconCode2}.png`;
+      myIconForecast2.alt = description2;
+      myDescriptionForecast2.innerText = description2;
+      myTemperatureForecast2.innerText = `${temperature2}°C`;
+      myDayTime2.innerText = `${daytime2}`;
+      myIconForecast3.src = `img/${iconCode3}.png`;
+      myIconForecast3.alt = description3;
+      myDescriptionForecast3.innerText = description3;
+      myTemperatureForecast3.innerText = `${temperature3}°C`;
+      myDayTime3.innerText = `${daytime3}`;
+
+      //formatto le date in formato italiano (gg/mmm)
+      function formatDateIT() {
+        let dateArray = daytime.split(/(?:-| )+/);
+        if (dateArray[1] == '08') {
+          dateArray[1] = "Agosto";
+        }
+        let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
+        daytime = ItDate;
+      };
+      function formatDateIT2() {
+        let dateArray = daytime2.split(/(?:-| )+/);
+        if (dateArray[1] == '08') {
+          dateArray[1] = "Agosto";
+        }
+        let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
+        daytime2 = ItDate;
+      };
+      function formatDateIT3() {
+        let dateArray = daytime3.split(/(?:-| )+/);
+        if (dateArray[1] == '08') {
+          dateArray[1] = "Agosto";
+        }
+        let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
+        daytime3 = ItDate;
+      };
+
+    });  
 }
 
 // funzione per recuperare il suggerimento giusto
