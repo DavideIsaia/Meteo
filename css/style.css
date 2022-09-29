@@ -99,7 +99,7 @@ header img {
 .icon-forecast,
 .icon-forecast2,
 .icon-forecast3 {
-  width: 90%;
+  width: 60%;
 }
 
 .description-forecast,
@@ -112,4 +112,12 @@ header img {
 .temp-forecast2,
 .temp-forecast3 {
   font-weight: bold;
+}
+
+@media screen and (max-width: 1100px) {
+  .icon-forecast,
+  .icon-forecast2,
+  .icon-forecast3 {
+    width: 90%;
+  }
 }

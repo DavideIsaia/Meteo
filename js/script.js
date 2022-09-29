@@ -14,10 +14,12 @@ const myIconForecast = document.querySelector('.icon-forecast');
 const myDescriptionForecast = document.querySelector('.description-forecast');
 const myTemperatureForecast = document.querySelector('.temp-forecast');
 const myDayTime = document.querySelector('.daytime');
+
 const myIconForecast2 = document.querySelector('.icon-forecast2');
 const myDescriptionForecast2 = document.querySelector('.description-forecast2');
 const myTemperatureForecast2 = document.querySelector('.temp-forecast2');
 const myDayTime2 = document.querySelector('.daytime2');
+
 const myIconForecast3 = document.querySelector('.icon-forecast3');
 const myDescriptionForecast3 = document.querySelector('.description-forecast3');
 const myTemperatureForecast3 = document.querySelector('.temp-forecast3');
@@ -99,10 +101,12 @@ function onSuccess(position) {
       const description = dataForecast.list[8].weather[0].description;
       const temperature = Math.round(dataForecast.list[8].main.temp);
       let daytime = dataForecast.list[8].dt_txt;
+
       const iconCode2 = dataForecast.list[16].weather[0].icon;
       const description2 = dataForecast.list[16].weather[0].description;
       const temperature2 = Math.round(dataForecast.list[16].main.temp);
       let daytime2 = dataForecast.list[16].dt_txt;
+
       const iconCode3 = dataForecast.list[24].weather[0].icon;
       const description3 = dataForecast.list[24].weather[0].description;
       const temperature3 = Math.round(dataForecast.list[24].main.temp);
@@ -118,11 +122,13 @@ function onSuccess(position) {
       myDescriptionForecast.innerText = description;
       myTemperatureForecast.innerText = `${temperature}°C`;
       myDayTime.innerText = `${daytime}`;
+
       myIconForecast2.src = `img/${iconCode2}.png`;
       myIconForecast2.alt = description2;
       myDescriptionForecast2.innerText = description2;
       myTemperatureForecast2.innerText = `${temperature2}°C`;
       myDayTime2.innerText = `${daytime2}`;
+
       myIconForecast3.src = `img/${iconCode3}.png`;
       myIconForecast3.alt = description3;
       myDescriptionForecast3.innerText = description3;
@@ -132,9 +138,43 @@ function onSuccess(position) {
       //formatto le date in formato italiano (gg/mmm)
       function formatDateIT() {
         let dateArray = daytime.split(/(?:-| )+/);
+        if (dateArray[1] == '01') {
+          dateArray[1] = "Gennaio";
+        }
+        if (dateArray[1] == '02') {
+          dateArray[1] = "Febbraio";
+        }
+        if (dateArray[1] == '03') {
+          dateArray[1] = "Marzo";
+        }
+        if (dateArray[1] == '04') {
+          dateArray[1] = "Aprile";
+        }
+        if (dateArray[1] == '05') {
+          dateArray[1] = "Maggio";
+        }
+        if (dateArray[1] == '06') {
+          dateArray[1] = "Giugno";
+        }
+        if (dateArray[1] == '07') {
+          dateArray[1] = "Luglio";
+        }
         if (dateArray[1] == '08') {
           dateArray[1] = "Agosto";
         }
+        if (dateArray[1] == '09') {
+          dateArray[1] = "Settembre";
+        }
+        if (dateArray[1] == '10') {
+          dateArray[1] = "Ottobre";
+        }
+        if (dateArray[1] == '11') {
+          dateArray[1] = "Novembre";
+        }
+        if (dateArray[1] == '12') {
+          dateArray[1] = "Dicembre";
+        }
+
         let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
         daytime = ItDate;
       };
@@ -148,8 +188,8 @@ function onSuccess(position) {
       };
       function formatDateIT3() {
         let dateArray = daytime3.split(/(?:-| )+/);
-        if (dateArray[1] == '08') {
-          dateArray[1] = "Agosto";
+        if (dateArray[1] == '09') {
+          dateArray[1] = "Settembre";
         }
         let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
         daytime3 = ItDate;
