@@ -180,16 +180,82 @@ function onSuccess(position) {
       };
       function formatDateIT2() {
         let dateArray = daytime2.split(/(?:-| )+/);
+        if (dateArray[1] == '01') {
+          dateArray[1] = "Gennaio";
+        }
+        if (dateArray[1] == '02') {
+          dateArray[1] = "Febbraio";
+        }
+        if (dateArray[1] == '03') {
+          dateArray[1] = "Marzo";
+        }
+        if (dateArray[1] == '04') {
+          dateArray[1] = "Aprile";
+        }
+        if (dateArray[1] == '05') {
+          dateArray[1] = "Maggio";
+        }
+        if (dateArray[1] == '06') {
+          dateArray[1] = "Giugno";
+        }
+        if (dateArray[1] == '07') {
+          dateArray[1] = "Luglio";
+        }
         if (dateArray[1] == '08') {
           dateArray[1] = "Agosto";
+        }
+        if (dateArray[1] == '09') {
+          dateArray[1] = "Settembre";
+        }
+        if (dateArray[1] == '10') {
+          dateArray[1] = "Ottobre";
+        }
+        if (dateArray[1] == '11') {
+          dateArray[1] = "Novembre";
+        }
+        if (dateArray[1] == '12') {
+          dateArray[1] = "Dicembre";
         }
         let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
         daytime2 = ItDate;
       };
       function formatDateIT3() {
         let dateArray = daytime3.split(/(?:-| )+/);
+        if (dateArray[1] == '01') {
+          dateArray[1] = "Gennaio";
+        }
+        if (dateArray[1] == '02') {
+          dateArray[1] = "Febbraio";
+        }
+        if (dateArray[1] == '03') {
+          dateArray[1] = "Marzo";
+        }
+        if (dateArray[1] == '04') {
+          dateArray[1] = "Aprile";
+        }
+        if (dateArray[1] == '05') {
+          dateArray[1] = "Maggio";
+        }
+        if (dateArray[1] == '06') {
+          dateArray[1] = "Giugno";
+        }
+        if (dateArray[1] == '07') {
+          dateArray[1] = "Luglio";
+        }
+        if (dateArray[1] == '08') {
+          dateArray[1] = "Agosto";
+        }
         if (dateArray[1] == '09') {
           dateArray[1] = "Settembre";
+        }
+        if (dateArray[1] == '10') {
+          dateArray[1] = "Ottobre";
+        }
+        if (dateArray[1] == '11') {
+          dateArray[1] = "Novembre";
+        }
+        if (dateArray[1] == '12') {
+          dateArray[1] = "Dicembre";
         }
         let ItDate = (`${dateArray[2]} ${dateArray[1]}`);
         daytime3 = ItDate;
