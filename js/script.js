@@ -1,3 +1,6 @@
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register("/js/serviceWorker.js");
+}
 const rootElement = document.documentElement;
 
 // meteo attuale

@@ -4,9 +4,11 @@
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
-    "sizes": "192x192"
+    "sizes": "512x512"
   }],
   "background_color": "#3535EC",
-  "theme_color": "#3535EC",
-  "display": "fullscreen"
+  "theme_color": "#F535EC",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/" 
 }
